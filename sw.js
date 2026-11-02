@@ -1,4 +1,4 @@
-const CACHE = 'hong-er-shell-v2';
+const CACHE = 'hong-er-shell-v3';
 const SHELL = new URL('./index.html', self.registration.scope).href;
 const FILES = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './assets/lucide.min.js', './assets/icon.svg', './assets/icon-192.png', './assets/icon-512.png', './assets/apple-touch-icon.png'];
 

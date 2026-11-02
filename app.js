@@ -369,7 +369,16 @@
       window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY&&event.newValue!==persistedText){saveError='另一页面已更新记录。请重新打开 App，本页没有覆盖它。';render();}});
       // shortcut: 记录只存在本设备；跨设备同步有需要时再接云端，现通过备份迁移。
       navigator.storage?.persist?.().catch(()=>{});
-      if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{root.querySelector('[data-storage-note]').textContent='记录已保存在本机。离线安装未完成，请联网重开一次；重要牌局请另存备份。';}));
+      if('serviceWorker' in navigator)window.addEventListener('load',()=>{
+        const note=root.querySelector('[data-storage-note]');
+        const failed=()=>{note.textContent='记录已保存在本机。离线资源未就绪，请联网重开一次；重要牌局请另存备份。';};
+        note.textContent='记录自动保存在本机，正在准备离线资源。';
+        navigator.serviceWorker.register('./sw.js').then(registration=>{
+          const worker=registration.installing;
+          if(worker)worker.addEventListener('statechange',()=>{if(worker.state==='redundant'&&!registration.active)failed();});
+          navigator.serviceWorker.ready.then(()=>{note.textContent='已可离线使用。记录只存在本机，重要牌局请另存备份。';});
+        }).catch(failed);
+      });
       loadLedger();
       if(view==='players')root.querySelectorAll('[data-name-fields] input').forEach((input,i)=>input.value=names[i]);
       render();

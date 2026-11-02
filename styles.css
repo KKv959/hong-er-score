@@ -120,3 +120,12 @@ body { margin:0; }
     #red-two-home .ra-install { border-top:1px solid var(--ra-line); padding-top:18px; margin-bottom:8px; }
     body:has(dialog[open]) { overflow:hidden; }
     @media(max-width:360px) { #red-two-home .ra-phone { padding-left:16px; padding-right:16px; border-radius:0; } }
+
+    @supports not (color:light-dark(white,black)) {
+      html { background:#fff; }
+      #red-two-home .ra-phone { --ra-bg:#fff; --ra-ink:#232326; --ra-muted:#696970; --ra-soft:#f5f5f7; --ra-line:#e8e8ec; --ra-solid:#252528; --ra-on:#fff; --ra-red:#b32b3b; --ra-red-soft:#fbf0f2; --ra-disabled:#e9e9ee; --ra-disabled-ink:#62626d; }
+      @media(prefers-color-scheme:dark) {
+        html { background:#171719; }
+        #red-two-home .ra-phone { --ra-bg:#171719; --ra-ink:#f6f6f7; --ra-muted:#b0b0b8; --ra-soft:#252528; --ra-line:#3b3b40; --ra-solid:#f1f1f3; --ra-on:#1c1c20; --ra-red:#ff9aa6; --ra-red-soft:#35242a; --ra-disabled:#303035; --ra-disabled-ink:#b3b3bf; }
+      }
+    }
