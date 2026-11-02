@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171719" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="红二记分">
+  <meta name="description" content="阿薛的五人红二记分本。离线记分，本场结算，历史回顾。">
+  <meta name="color-scheme" content="light dark">
+  <title>红二记分</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./assets/lucide.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<div id="red-two-home" >
+  <div class="ra-phone" aria-label="红二记分">
+    <header class="ra-between"><div class="ra-brand"><span class="ra-mark" aria-hidden="true">2</span><h1>红二记分</h1></div><span class="ra-meta" data-header>五人一桌</span></header>
+    <main>
+      <div class="ra-save-error" data-save-error role="alert" hidden><p data-save-message></p><button type="button" class="ra-text-button cursor-interaction" data-retry>重试保存</button></div>
+      <section class="ra-screen" data-screen="home" aria-labelledby="ra-home-title">
+        <h2 class="ra-title" id="ra-home-title">开桌记分</h2>
+        <p class="ra-subtitle" data-home-meta>5 位玩家 · 已记 0 局</p>
+        <div class="ra-home-people ra-section">
+          <div class="ra-between"><h3 class="ra-label">本场玩家</h3><button type="button" class="ra-text-button cursor-interaction" data-go="players">改名字</button></div>
+          <div class="ra-members" data-members></div>
+        </div>
+        <div class="ra-home-actions"><button type="button" class="ra-primary cursor-interaction" data-start data-go="score">开始记分</button></div>
+        <button type="button" class="ra-history-link cursor-interaction" data-go="sessions"><span><strong>历史牌局</strong><small data-sessions-count>结束一场，自动留下一份记录</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+        <button type="button" class="ra-secondary ra-tools-link" data-tools-open>备份与安装</button>
+      </section>
+      <section class="ra-screen" data-screen="score" aria-labelledby="ra-score-title" hidden>
+        <h2 class="ra-title" id="ra-score-title">普通局</h2><p class="ra-subtitle" data-score-mode>选赢家</p>
+        <div class="ra-people" data-people role="group" aria-label="本局赢家与奖励"></div>
+        <div class="ra-section"><h3 class="ra-label">番数</h3><div class="ra-fans" data-fans role="group" aria-label="本局番数"></div></div>
+        <div class="ra-section"><div class="ra-between"><h3 class="ra-label">结果</h3><span class="ra-meta" data-result-note>点即记账</span></div>
+          <div data-normal-outcomes><div class="ra-outcomes" data-outcomes role="group" aria-label="普通局抓几家并记分"></div></div>
+          <div data-special-outcome hidden><div class="ra-sides" role="group" aria-label="三红二结果并记分"><button type="button" class="cursor-interaction" data-side="owner"><strong>抓四家</strong><small></small></button><button type="button" class="cursor-interaction" data-side="draw"><strong>和局</strong><small></small></button><button type="button" class="cursor-interaction" data-side="others"><strong>输四家</strong><small></small></button></div></div>
+        </div>
+        <div class="ra-between ra-receipt"><p class="ra-status" data-status aria-live="polite"></p><button type="button" class="ra-text-button ra-undo cursor-interaction" data-undo disabled>撤销</button></div>
+      </section>
+      <section class="ra-screen" data-screen="overview" aria-labelledby="ra-overview-title" hidden>
+        <h2 class="ra-title" id="ra-overview-title">本场总览</h2><p class="ra-subtitle" data-overview-meta>已记 0 局 · 5 人参与</p>
+        <div class="ra-board" data-board aria-label="五人累计积分"></div>
+        <button type="button" class="ra-history-link cursor-interaction" data-go="history"><span><strong>逐局明细</strong></span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+        <p class="ra-balance" data-balance>全桌加减合计 0 · 账目已对齐</p>
+        <button type="button" class="ra-primary ra-end cursor-interaction" data-finish>结束本场</button>
+        <div class="ra-confirm" data-finish-confirm hidden><p>这局还没记。</p><button type="button" class="ra-primary cursor-interaction" data-go="score">继续记</button><button type="button" class="ra-secondary cursor-interaction" data-discard-finish>跳过，结束</button></div>
+      </section>
+      <section class="ra-screen" data-screen="sessions" aria-labelledby="ra-sessions-title" hidden>
+        <button type="button" class="ra-back cursor-interaction" data-go="home"><i data-lucide="chevron-left" aria-hidden="true"></i>返回首页</button>
+        <h2 class="ra-title" id="ra-sessions-title">历史牌局</h2><p class="ra-subtitle" data-sessions-meta>每一场，都有记录</p><div class="ra-section" data-sessions></div>
+      </section>
+      <section class="ra-screen" data-screen="summary" aria-labelledby="ra-summary-title" hidden>
+        <button type="button" class="ra-back cursor-interaction" data-go="sessions"><i data-lucide="chevron-left" aria-hidden="true"></i>历史牌局</button>
+        <h2 class="ra-title" id="ra-summary-title">本场结算</h2><p class="ra-subtitle" data-summary-date></p><p class="ra-subtitle" data-summary-meta></p>
+        <div class="ra-board" data-summary-board aria-label="本场最终积分"></div>
+        <button type="button" class="ra-history-link cursor-interaction" data-go="history"><span><strong>逐局明细</strong></span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+        <button type="button" class="ra-primary ra-end cursor-interaction" data-new-session data-go="score">新开一场</button>
+        <button type="button" class="ra-secondary cursor-interaction" data-reopen>继续本场</button>
+      </section>
+      <section class="ra-screen" data-screen="history" aria-labelledby="ra-history-title" hidden>
+        <button type="button" class="ra-back cursor-interaction" data-history-back><i data-lucide="chevron-left" aria-hidden="true"></i><span data-history-back-label>返回总览</span></button>
+        <h2 class="ra-title" id="ra-history-title">逐局明细</h2><p class="ra-subtitle" data-history-meta>还没有记录</p><div data-history></div>
+        <button type="button" class="ra-load cursor-interaction" data-more hidden>看更早的 20 局</button>
+      </section>
+      <section class="ra-screen" data-screen="players" aria-labelledby="ra-players-title" hidden>
+        <button type="button" class="ra-back cursor-interaction" data-go="home"><i data-lucide="chevron-left" aria-hidden="true"></i>返回首页</button>
+        <h2 class="ra-title" id="ra-players-title">玩家</h2>
+        <form data-name-form><div class="ra-name-fields" data-name-fields></div><p class="ra-error" role="alert" data-name-error></p><button type="button" class="ra-primary cursor-interaction" data-save-names>保存名字</button></form>
+      </section>
+    </main>
+    <nav class="ra-nav" aria-label="主要页面">
+      <button type="button" class="cursor-interaction" data-tab="home" data-go="home" aria-current="page"><i data-lucide="house" aria-hidden="true"></i><span>首页</span></button>
+      <button type="button" class="cursor-interaction" data-tab="score" data-go="score"><i data-lucide="plus" aria-hidden="true"></i><span>记分</span></button>
+      <button type="button" class="cursor-interaction" data-tab="overview" data-go="overview"><i data-lucide="chart-no-axes-column" aria-hidden="true"></i><span>总览</span></button>
+    </nav>
+    <dialog class="ra-dialog ra-reward-picker" id="ra-reward-picker" data-reward-picker aria-labelledby="ra-picker-title">
+      <div class="ra-between"><h2 class="ra-dialog-title" id="ra-picker-title" data-picker-title></h2><button type="button" class="ra-picker-close" data-picker-close aria-label="关闭奖励"><i data-lucide="x" aria-hidden="true"></i></button></div>
+      <div class="ra-reward-options" data-reward-options></div>
+    </dialog>
+    <dialog class="ra-dialog" data-tools aria-labelledby="ra-tools-title">
+      <div class="ra-between"><h2 class="ra-dialog-title" id="ra-tools-title">备份与安装</h2><button type="button" class="ra-picker-close" data-dialog-close aria-label="关闭"><i data-lucide="x" aria-hidden="true"></i></button></div>
+      <p class="ra-dialog-note" data-storage-note>记录自动保存在这台设备。重要牌局请另存备份。</p>
+      <button type="button" class="ra-primary" data-export>保存备份</button>
+      <button type="button" class="ra-secondary" data-import-open>恢复备份</button>
+      <input type="file" accept=".json,application/json" data-import-file hidden>
+      <button type="button" class="ra-secondary" data-import-undo hidden>撤销上次恢复</button>
+      <p class="ra-dialog-note ra-install" data-install>安装到 iPhone：用 Safari 打开，点“分享” → “添加到主屏幕”。首次联网打开后即可离线记分。</p>
+      <p class="ra-dialog-message" data-tools-message role="status" aria-live="polite"></p>
+    </dialog>
+    <dialog class="ra-dialog" data-import-confirm aria-labelledby="ra-import-title">
+      <h2 class="ra-dialog-title" id="ra-import-title" data-import-title>恢复这份备份？</h2>
+      <p class="ra-dialog-note" data-import-meta></p>
+      <p class="ra-dialog-note">将替换本机记录。替换前的记录会保留，可在“备份与安装”中撤销恢复。</p>
+      <button type="button" class="ra-primary" data-import-apply>恢复</button>
+      <button type="button" class="ra-secondary" data-dialog-close>取消</button>
+    </dialog>
+  </div>
+</div>
+
+<noscript>阿薛，请在 Safari 中启用 JavaScript 后使用红二记分。</noscript>
+</body>
+</html>

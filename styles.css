@@ -1,0 +1,122 @@
+html { color-scheme:light dark; background:light-dark(#fff,#171719); -webkit-text-size-adjust:100%; }
+body { margin:0; }
+#red-two-home { color-scheme:light dark; padding:0; }
+    #red-two-home * { box-sizing:border-box; }
+    #red-two-home .ra-phone { --ra-bg:light-dark(#fff,#171719); --ra-ink:light-dark(#232326,#f6f6f7); --ra-muted:light-dark(#696970,#b0b0b8); --ra-soft:light-dark(#f5f5f7,#252528); --ra-line:light-dark(#e8e8ec,#3b3b40); --ra-solid:light-dark(#252528,#f1f1f3); --ra-on:light-dark(#fff,#1c1c20); --ra-red:light-dark(#b32b3b,#ff9aa6); --ra-red-soft:light-dark(#fbf0f2,#35242a); --ra-disabled:light-dark(#e9e9ee,#303035); --ra-disabled-ink:light-dark(#62626d,#b3b3bf); max-width:400px; margin:0 auto; min-height:750px; display:flex; flex-direction:column; padding:24px 22px 8px; background:var(--ra-bg); color:var(--ra-ink); border:1px solid var(--ra-line); border-radius:28px; font:400 16px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+    #red-two-home [hidden] { display:none!important; }
+    #red-two-home h1,#red-two-home h2,#red-two-home h3,#red-two-home p { margin:0; }
+    #red-two-home button,#red-two-home input,#red-two-home select { font:inherit; }
+    #red-two-home button { appearance:none; border:0; border-radius:12px; background:var(--ra-soft); color:var(--ra-ink); min-height:44px; padding:10px 12px; touch-action:manipulation; transition:background-color .15s,color .15s; }
+    #red-two-home button:active:not(:disabled) { filter:brightness(.9); }
+    #red-two-home button:focus-visible,#red-two-home input:focus-visible { outline:3px solid var(--ra-red); outline-offset:3px; }
+    #red-two-home button:disabled { background:var(--ra-disabled); color:var(--ra-disabled-ink); }
+    #red-two-home .ra-between { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    #red-two-home .ra-brand { display:flex; align-items:center; gap:9px; }
+    #red-two-home .ra-brand h1 { font-size:16px; font-weight:600; letter-spacing:.2px; }
+    #red-two-home .ra-mark { width:24px; height:30px; border-radius:5px; display:grid; place-items:center; background:var(--ra-red); color:var(--ra-bg); font:600 21px/1 Georgia,serif; }
+    #red-two-home .ra-meta { font-size:12px; color:var(--ra-muted); }
+    #red-two-home main { flex:1; padding-top:30px; padding-bottom:24px; }
+    #red-two-home .ra-title { font-size:29px; font-weight:600; line-height:1.3; letter-spacing:-.3px; }
+    #red-two-home .ra-subtitle { font-size:13px; color:var(--ra-muted); margin-top:8px; }
+    #red-two-home .ra-label { font-size:15px; font-weight:500; }
+    #red-two-home .ra-section { margin-top:26px; }
+    #red-two-home .ra-text-button { background:transparent; padding:8px 0 8px 8px; font-size:13px; min-width:48px; }
+    #red-two-home .ra-primary { background:var(--ra-solid); color:var(--ra-on); font-size:16px; font-weight:500; width:100%; min-height:54px; }
+    #red-two-home .ra-secondary { width:100%; background:transparent; min-height:48px; font-size:14px; }
+    #red-two-home .ra-members { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; margin-top:18px; }
+    #red-two-home .ra-member { display:flex; flex-direction:column; align-items:center; gap:9px; text-align:center; }
+    #red-two-home .ra-avatar { display:grid; place-items:center; width:42px; height:42px; background:var(--ra-soft); border-radius:50%; font-size:16px; font-weight:500; }
+    #red-two-home .ra-member-name { font-size:13px; overflow-wrap:anywhere; }
+    #red-two-home .ra-home-people { padding:18px 0 26px; border-bottom:1px solid var(--ra-line); }
+    #red-two-home .ra-home-actions { margin-top:32px; }
+    #red-two-home .ra-people { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; margin-top:20px; }
+    #red-two-home .ra-player { grid-column:span 2; min-width:0; }
+    #red-two-home .ra-player:nth-child(4) { grid-column:2/span 2; }
+    #red-two-home .ra-player:nth-child(5) { grid-column:4/span 2; }
+    #red-two-home .ra-person { width:100%; min-height:78px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; background:var(--ra-bg); border:1px solid var(--ra-line); padding:9px 5px; }
+    #red-two-home .ra-person[aria-pressed="true"] { background:var(--ra-solid); color:var(--ra-on); border-color:var(--ra-solid); }
+    #red-two-home .ra-person-name { font-size:15px; font-weight:500; overflow-wrap:anywhere; max-width:100%; }
+    #red-two-home .ra-person-score { font-size:23px; font-weight:550; line-height:1.25; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; max-width:100%; }
+    #red-two-home .ra-person:disabled { background:var(--ra-bg); color:var(--ra-ink); }
+    #red-two-home .ra-reward-trigger { width:100%; margin-top:4px; padding:8px 2px; background:transparent; color:var(--ra-muted); font-size:12px; border-radius:8px; overflow-wrap:anywhere; }
+    #red-two-home .ra-reward-trigger[data-filled="true"] { color:var(--ra-red); background:var(--ra-red-soft); font-weight:500; }
+    #red-two-home .ra-reward-picker { background:var(--ra-bg); }
+    #red-two-home .ra-reward-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:10px; }
+    #red-two-home .ra-reward-options button { background:var(--ra-soft); padding:14px 3px; min-height:56px; font-size:16px; }
+    #red-two-home .ra-reward-options button[aria-pressed="true"] { background:var(--ra-solid); color:var(--ra-on); }
+    #red-two-home .ra-reward-options [data-reward-choice="7"] { grid-column:span 2; }
+    #red-two-home .ra-picker-close { min-width:44px; padding:8px; background:transparent; display:grid; place-items:center; }
+    #red-two-home .ra-picker-close svg { width:18px; height:18px; }
+    #red-two-home .ra-fans { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:6px; margin-top:12px; }
+    #red-two-home .ra-fan { min-height:46px; padding:8px 0; font-size:14px; font-weight:500; }
+    #red-two-home .ra-fan[aria-pressed="true"] { background:var(--ra-solid); color:var(--ra-on); }
+    #red-two-home .ra-outcomes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:12px; }
+    #red-two-home .ra-outcome { min-height:67px; background:var(--ra-solid); color:var(--ra-on); padding:12px 3px; }
+    #red-two-home .ra-outcome strong { display:block; font-size:15px; font-weight:500; }
+    #red-two-home .ra-outcome small { display:block; margin-top:5px; font-size:11px; font-weight:400; }
+    #red-two-home .ra-receipt { margin-top:16px; padding-top:10px; border-top:1px solid var(--ra-line); }
+    #red-two-home .ra-status { font-size:12px; color:var(--ra-muted); min-height:38px; line-height:1.6; overflow-wrap:anywhere; }
+    #red-two-home .ra-undo:disabled { background:transparent; }
+    #red-two-home .ra-board { margin-top:25px; }
+    #red-two-home .ra-board-row { min-height:66px; display:flex; align-items:center; justify-content:space-between; gap:18px; border-bottom:1px solid var(--ra-line); }
+    #red-two-home .ra-board-name { font-size:16px; overflow-wrap:anywhere; }
+    #red-two-home .ra-board-score { font-size:29px; font-weight:550; font-variant-numeric:tabular-nums; line-height:1.3; flex-shrink:0; }
+    #red-two-home .ra-positive { color:var(--ra-red); }
+    #red-two-home .ra-history-link { width:100%; margin-top:24px; min-height:67px; display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:left; padding:14px 16px; }
+    #red-two-home .ra-history-link strong { display:block; font-size:15px; font-weight:500; }
+    #red-two-home .ra-history-link small { display:block; margin-top:3px; color:var(--ra-muted); font-size:12px; }
+    #red-two-home .ra-balance { margin-top:18px; color:var(--ra-muted); text-align:center; font-size:12px; }
+    #red-two-home .ra-back { padding:8px 4px 8px 0; background:transparent; font-size:13px; margin-top:-15px; margin-bottom:8px; display:flex; align-items:center; gap:5px; }
+    #red-two-home .ra-round-card { padding:19px 0; border-bottom:1px solid var(--ra-line); }
+    #red-two-home .ra-round-card h3 { font-size:15px; font-weight:500; }
+    #red-two-home .ra-round-winners { margin-top:7px; font-size:12px; color:var(--ra-muted); overflow-wrap:anywhere; }
+    #red-two-home .ra-round-scores { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px; margin-top:14px; }
+    #red-two-home .ra-round-scores span { display:flex; flex-direction:column; align-items:center; gap:5px; font-size:11px; color:var(--ra-muted); overflow-wrap:anywhere; text-align:center; }
+    #red-two-home .ra-round-scores b { font-size:18px; color:var(--ra-ink); font-weight:500; font-variant-numeric:tabular-nums; }
+    #red-two-home .ra-empty { padding:44px 8px; color:var(--ra-muted); text-align:center; font-size:14px; }
+    #red-two-home .ra-load { width:100%; margin-top:16px; font-size:14px; }
+    #red-two-home .ra-session { display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; padding:20px 0; text-align:left; background:transparent; border-radius:0; border-bottom:1px solid var(--ra-line); }
+    #red-two-home .ra-session strong { display:block; font-size:16px; font-weight:500; }
+    #red-two-home .ra-session small { display:block; margin-top:6px; font-size:13px; color:var(--ra-muted); overflow-wrap:anywhere; }
+    #red-two-home .ra-session svg { width:18px; height:18px; flex-shrink:0; }
+    #red-two-home .ra-end { margin-top:26px; }
+    #red-two-home .ra-confirm { padding:16px; margin-top:20px; border-radius:12px; background:var(--ra-soft); }
+    #red-two-home .ra-confirm p { font-size:14px; margin-bottom:8px; }
+    #red-two-home .ra-confirm button { width:100%; }
+    #red-two-home .ra-save-error { padding:12px; margin-bottom:20px; border-radius:10px; background:var(--ra-red-soft); color:var(--ra-red); font-size:13px; }
+    #red-two-home .ra-sides { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:12px; }
+    #red-two-home .ra-sides button { min-height:70px; padding:10px 3px; background:var(--ra-solid); color:var(--ra-on); }
+    #red-two-home .ra-sides strong { display:block; font-size:15px; font-weight:500; }
+    #red-two-home .ra-sides small { display:block; margin-top:4px; font-size:13px; font-variant-numeric:tabular-nums; }
+    #red-two-home .ra-breakdown { margin-top:14px; font-size:12px; color:var(--ra-muted); }
+    #red-two-home .ra-breakdown summary { min-height:44px; display:flex; align-items:center; }
+    #red-two-home .ra-breakdown table { width:100%; border-collapse:collapse; text-align:right; font-variant-numeric:tabular-nums; }
+    #red-two-home .ra-breakdown th,#red-two-home .ra-breakdown td { padding:8px 0; border-bottom:1px solid var(--ra-line); font-weight:400; }
+    #red-two-home .ra-breakdown th:first-child,#red-two-home .ra-breakdown td:first-child { text-align:left; overflow-wrap:anywhere; }
+    #red-two-home .ra-name-fields { display:grid; gap:14px; margin:24px 0; }
+    #red-two-home .ra-name-fields label { display:grid; gap:7px; color:var(--ra-muted); font-size:13px; }
+    #red-two-home .ra-name-fields input { width:100%; min-height:48px; padding:10px 13px; border:1px solid var(--ra-line); border-radius:10px; background:var(--ra-bg); color:var(--ra-ink); font-size:16px; }
+    #red-two-home .ra-error { color:var(--ra-red); font-size:13px; margin-bottom:12px; min-height:20px; }
+    #red-two-home .ra-nav { margin-top:auto; padding:8px 0 4px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; border-top:1px solid var(--ra-line); }
+    #red-two-home .ra-nav button { min-height:58px; padding:6px 4px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; background:transparent; color:var(--ra-muted); font-size:12px; border-radius:10px; }
+    #red-two-home .ra-nav button[aria-current="page"] { color:var(--ra-ink); background:var(--ra-soft); font-weight:500; }
+    #red-two-home .ra-nav svg { width:20px; height:20px; stroke-width:1.7; }
+    #red-two-home .ra-back svg,#red-two-home .ra-history-link svg { width:18px; height:18px; flex-shrink:0; }
+    #red-two-home .ra-phone[data-current="score"] main { padding-top:22px; padding-bottom:16px; }
+    @media(max-width:360px) { #red-two-home .ra-phone { padding:20px 16px 8px; border-radius:24px; } #red-two-home main { padding-top:25px; } #red-two-home .ra-title { font-size:27px; } #red-two-home .ra-members { gap:5px; } #red-two-home .ra-section { margin-top:22px; } }
+    @media(max-width:330px) { #red-two-home .ra-fans { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    @media(prefers-reduced-motion:reduce) { #red-two-home button { transition:none; } }
+
+    #red-two-home .ra-phone { max-width:480px; min-height:100svh; border:0; border-radius:0; padding:max(20px,env(safe-area-inset-top)) 22px 0; }
+    #red-two-home .ra-phone main, #red-two-home .ra-phone[data-current="score"] main { padding-bottom:calc(110px + env(safe-area-inset-bottom)); }
+    #red-two-home .ra-nav { position:fixed; z-index:2; bottom:0; left:50%; transform:translateX(-50%); width:min(100%,480px); padding:8px 16px calc(6px + env(safe-area-inset-bottom)); background:var(--ra-bg); }
+    #red-two-home .ra-dialog { position:fixed; width:calc(100% - 32px); max-width:360px; max-height:calc(100dvh - 40px); margin:auto; padding:20px; overflow:auto; overscroll-behavior:contain; border:0; border-radius:24px; background:var(--ra-bg); color:var(--ra-ink); box-shadow:0 18px 70px #0003; }
+    #red-two-home .ra-dialog::backdrop { background:#0008; }
+    #red-two-home .ra-dialog-title { font-size:20px; font-weight:600; line-height:1.4; }
+    #red-two-home .ra-dialog-note { color:var(--ra-muted); font-size:14px; line-height:1.7; margin:14px 0 20px; overflow-wrap:anywhere; }
+    #red-two-home .ra-dialog-message { color:var(--ra-red); font-size:14px; overflow-wrap:anywhere; }
+    #red-two-home .ra-dialog .ra-reward-options { margin-top:18px; }
+    #red-two-home .ra-tools-link { margin-top:20px; color:var(--ra-muted); }
+    #red-two-home .ra-install { border-top:1px solid var(--ra-line); padding-top:18px; margin-bottom:8px; }
+    body:has(dialog[open]) { overflow:hidden; }
+    @media(max-width:360px) { #red-two-home .ra-phone { padding-left:16px; padding-right:16px; border-radius:0; } }
